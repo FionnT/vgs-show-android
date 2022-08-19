@@ -32,7 +32,6 @@ class CollectAndShowActivity : AppCompatActivity(), VGSOnResponseListener {
     private val showVgs: VGSShow by lazy {
         VGSShow.Builder(this, TENANT_ID)
             .setEnvironment(VGSEnvironment.Sandbox())
-            .setHostname(COLLECT_CUSTOM_HOSTNAME)
             .build()
     }
 
@@ -56,12 +55,9 @@ class CollectAndShowActivity : AppCompatActivity(), VGSOnResponseListener {
     private fun revealData() {
         pbReveal?.visibility = View.VISIBLE
         showVgs.requestAsync(
-            VGSRequest.Builder("post", VGSHttpMethod.POST).body(
-                mapOf(
-                    "payment_card_number" to revealAlias,
-                    "payment_card_expiration_date" to revealAlias2
-                )
-            ).build()
+            VGSRequest.Builder("/financial/card_tokens/", VGSHttpMethod.GET)
+                .headers(mapOf("Authorization" to "Bearer 15fb4cae02c42168ca411856d06eced4d6cee5e2"))
+                .build()
         )
     }
 

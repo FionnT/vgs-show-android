@@ -36,9 +36,9 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
 
-        const val TENANT_ID = "tntpszqgikn"
+        const val TENANT_ID = "tntob5ez09h"
         const val ENVIRONMENT = "sandbox"
-        const val COLLECT_CUSTOM_HOSTNAME = "collect-android-testing.verygoodsecurity.io/test"
+        const val COLLECT_CUSTOM_HOSTNAME = "abcdef"
     }
 }
 
